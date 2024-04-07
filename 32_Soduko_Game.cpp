@@ -21,6 +21,16 @@ bool isSafe(int a[][9],int i,int j,int no)
     return true;
 }
 
+bool isSafe2(int a[][9],int &i,int &j,int &no) //This function is very faster then above function.
+    {
+        for(int k=0;k<9;k++)
+        {
+            if(board[k][j]==no || board[i][k]==no) return false;
+            if(board[3*(i/3)+(k/3)][3*(j/3)+(k%3)]==no) return false;
+        }
+        return true;
+    }
+
 bool soduko(int a[][9],int i,int j,int n)
 {
     if(i==n)
